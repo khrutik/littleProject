@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'config.php';
 
 $isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
