@@ -1,20 +1,5 @@
 <?php
-session_start();
-
-// 1. ตั้งค่าการเชื่อมต่อฐานข้อมูล (Database Connection)
-$host = "localhost";
-$db_name = "little_project_db";
-$username = "root";
-$password = "";
-
-try {
-    $db = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $db->exec("set names utf8");
-} catch(PDOException $e) {
-    die("Connection error: " . $e->getMessage());
-}
+include 'config.php';
 
 $isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
 
